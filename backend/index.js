@@ -7,9 +7,11 @@ const app=express()
 app.use(express.json())
 const cors=require('cors')
 const quizRouter = require('./src/routes/quizRouter')
+const pollRouter = require('./src/routes/pollRouter')
 app.use(cors())
 app.use('/user',userRouter)
 app.use('/quiz',auth,quizRouter)
+app.use('/poll',auth,pollRouter)
 const port=3000
 const url="mongodb+srv://test:test@cluster0.co3xz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 app.listen(port,async()=>{
